@@ -4,6 +4,8 @@ import '../styles/global.css';
 interface Props { title: string }
 const { title } = Astro.props;
 const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+const isGigsPage = currentPath.endsWith('/gigs') || currentPath.endsWith('/gigs/');
 ---
 
 <!doctype html>
@@ -16,16 +18,16 @@ const currentPath = Astro.url.pathname;
   </head>
   <body>
     <header class="site-header">
-      <a class="wordmark" href="/" aria-label="GenericBandName home">GBN<span>.</span></a>
+      <a class="wordmark" href={base} aria-label="GenericBandName home">GBN<span>.</span></a>
       <nav aria-label="Main navigation">
-        <a class:list={[{ active: currentPath === '/' }]} href="/">Home</a>
-        <a class:list={[{ active: currentPath === '/gigs' }]} href="/gigs">Gigs</a>
+        <a class:list={[{ active: !isGigsPage }]} href={base}>Home</a>
+        <a class:list={[{ active: isGigsPage }]} href={`${base}gigs/`}>Gigs</a>
         <a href="https://chatgpt.com/" target="_blank" rel="noreferrer">Music [new tab]</a>
       </nav>
     </header>
     <slot />
     <footer class="site-footer container">
-      <a class="wordmark" href="/">GBN<span>.</span></a>
+      <a class="wordmark" href={base}>GBN<span>.</span></a>
       <p>Copyright 2026 GenericBandName. All noise reserved.</p>
       <a href="https://chatgpt.com/" target="_blank" rel="noreferrer">Temporary social link</a>
     </footer>
