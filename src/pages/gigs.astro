@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const gigs = [
+  { date: 'Sep 12', year: '2026', venue: 'The Meridian Room', city: 'Denver, CO', tickets: 'https://chatgpt.com/' },
+  { date: 'Oct 03', year: '2026', venue: 'Echo Park Hall', city: 'Los Angeles, CA', tickets: 'https://chatgpt.com/' },
+  { date: 'Oct 24', year: '2026', venue: 'The Blue Room', city: 'Chicago, IL', tickets: 'https://chatgpt.com/' },
+  { date: 'Nov 14', year: '2026', venue: 'The Lantern Theatre', city: 'Austin, TX', tickets: 'https://chatgpt.com/' },
+];
+---
+
+<BaseLayout title="Gigs — GenericBandName">
+  <main class="gigs-page">
+    <section class="page-intro container">
+      <p class="eyebrow">Catch us in the room</p>
+      <h1>Upcoming<br /><em>gigs.</em></h1>
+      <p>Four nights. Four cities. One shared signal.</p>
+    </section>
+
+    <section class="gig-list container" aria-label="Upcoming gigs">
+      {gigs.map((gig) => (
+        <article class="gig-row">
+          <div class="gig-row__date"><strong>{gig.date}</strong><span>{gig.year}</span></div>
+          <div class="gig-row__details"><h2>{gig.venue}</h2><p>{gig.city}</p></div>
+          <a class="ticket-link" href={gig.tickets} target="_blank" rel="noreferrer">Tickets <span aria-hidden="true">↗</span></a>
+        </article>
+      ))}
+    </section>
+
+    <section class="closing-note container">
+      <p>More dates are always taking shape.</p>
+      <a class="text-link" href="https://chatgpt.com/" target="_blank" rel="noreferrer">Follow the temporary social link <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+</BaseLayout>

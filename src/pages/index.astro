@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const nextShow = {
+  date: 'September 12, 2026',
+  venue: 'The Meridian Room',
+  city: 'Denver, CO',
+};
+---
+
+<BaseLayout title="GenericBandName — Official Site">
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__halo" aria-hidden="true"></div>
+      <div class="hero__grain" aria-hidden="true"></div>
+      <div class="hero__content container">
+        <p class="eyebrow">New sounds in the dark</p>
+        <h1 id="hero-title">Generic<br /><em>BandName</em></h1>
+        <p class="hero__intro">Cinematic noise for the spaces between midnight and morning.</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="https://chatgpt.com/" target="_blank" rel="noreferrer">Listen on Spotify <span aria-hidden="true">↗</span></a>
+          <a class="button button--ghost" href="#shows">See live dates</a>
+        </div>
+      </div>
+      <p class="hero__credit">Independent • Somewhere after dark</p>
+    </section>
+
+    <section class="manifesto section container" aria-labelledby="manifesto-title">
+      <p class="eyebrow">The signal</p>
+      <div class="manifesto__copy">
+        <h2 id="manifesto-title">Music for the long way home.</h2>
+        <p>GenericBandName makes slow-burning songs with a pulse beneath the surface. Equal parts shadow, static, and light—best heard with the room turned down.</p>
+      </div>
+    </section>
+
+    <section class="shows section" id="shows" aria-labelledby="shows-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">On the road</p>
+            <h2 id="shows-title">Next up</h2>
+          </div>
+          <a class="text-link" href="/gigs">All upcoming gigs <span aria-hidden="true">→</span></a>
+        </div>
+        <article class="featured-show">
+          <p class="featured-show__date">{nextShow.date}</p>
+          <div>
+            <h3>{nextShow.venue}</h3>
+            <p>{nextShow.city}</p>
+          </div>
+          <a class="round-link" href="/gigs" aria-label="View all upcoming gigs">↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="listen section container" aria-labelledby="listen-title">
+      <div class="listen__art" aria-hidden="true"><span>GBN</span></div>
+      <div class="listen__content">
+        <p class="eyebrow">In your headphones</p>
+        <h2 id="listen-title">Press play. Let it linger.</h2>
+        <p>Our Spotify player will live here once your artist link is ready. For now, this button uses the requested temporary destination.</p>
+        <a class="text-link" href="https://chatgpt.com/" target="_blank" rel="noreferrer">Open temporary Spotify link <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
