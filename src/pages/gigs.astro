@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { band } from '../config';
 
 const gigs = [
   { date: 'Sep 12', year: '2026', venue: 'The Meridian Room', city: 'Denver, CO', tickets: 'https://chatgpt.com/' },
@@ -9,7 +10,7 @@ const gigs = [
 ];
 ---
 
-<BaseLayout title="Gigs — GenericBandName">
+<BaseLayout title={`Gigs — ${band.name}`}>
   <main class="gigs-page">
     <section class="page-intro container">
       <p class="eyebrow">Catch us in the room</p>
