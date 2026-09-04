@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { band } from '../config';
+
+const spotifyEmbedUrl = `https://open.spotify.com/embed/album/${band.spotifyAlbumId}?utm_source=generator`;
+---
+
+<BaseLayout title={`Music — ${band.name}`}>
+  <main class="music-page">
+    <section class="page-intro container">
+      <p class="eyebrow">In your headphones</p>
+      <h1>Press play.<br /><em>Let it linger.</em></h1>
+      <p>One record to start the night. Turn it up and stay awhile.</p>
+    </section>
+
+    <section class="player-section container" aria-label={`${band.name} on Spotify`}>
+      <iframe
+        class="spotify-player"
+        src={spotifyEmbedUrl}
+        title={`${band.name} on Spotify`}
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+      ></iframe>
+    </section>
+  </main>
+</BaseLayout>
